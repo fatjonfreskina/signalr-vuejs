@@ -39,11 +39,15 @@ public async Task NotifyOneByConnectionId(string user, string message)
     await Clients.Client("connection id A").SendAsync("notifySpecificUser", user, message);
 }
 
-// Notify multiple ids: await Clients.Clients("id 1", "id 2").SendAsync("notifyMany", user, message);
+public async Task NotifyAllExcept(string exceptId)
+{
+    await Clients.AllExcept(exceptId).SendAsync("notifyAllExcept", user, message);
+}
 
-// Notify all (included the sender) except some: await Clients.AllExcept("id 1").SensAsync("notifyExceptReceived", user, message);
-
-// Specific user by some your ID: await Clients.User("yourname@gmail.com").SendAsync("notifySpecificUser", user, message);
+public async Task NotifySpecificUserById(string userId, string message)
+{
+  await Clients.User("yourname@gmail.com").SendAsync("notifySpecificUser", message);
+}
 ```
 
 ### Javascript options and notes
