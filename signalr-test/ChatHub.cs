@@ -38,9 +38,17 @@ public class ChatHub : Hub
         Console.WriteLine($"Updated: {Updated}");
     }
 
-    public async Task SendMessage(string from, string to, string message)
+    public async Task SendRoomMessage(string roomId, string message)
     {
-        await Clients.Client(to).SendAsync("UpdateMenuReceived", from, message);
+        Console.WriteLine($"Forwarding {message} from: {Context.ConnectionId}");
+        await Clients.Group(roomId).SendAsync("messageRoom", message);
+    }
+
+    public async Task JoinRoom(string roomName)
+    {
+        Console.WriteLine($"User {Context.ConnectionId} joined room: {roomName}");
+        await Groups.AddToGroupAsync(Context.ConnectionId, roomName);
+        await Clients.Group(roomName).SendAsync("userJoined", $"{Context.ConnectionId}  joined.");
     }
 
     // Notify the caller of the method
