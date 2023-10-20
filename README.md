@@ -2,19 +2,20 @@
 
 ## Setup
 
-Frontend: npm install && npm run serve
+- Frontend: npm install && npm run serve
 
-Backend aprire la solution e avviare la web api
+- Backend aprire la solution e avviare la web api
 
 ## Documentazione
 
-Continuare: [video](https://www.youtube.com/watch?v=pl0OobPmWTk&t=2275s&ab_channel=DotNetMastery)
+Preso spunto da questp [video](https://www.youtube.com/watch?v=pl0OobPmWTk&t=2275s&ab_channel=DotNetMastery)
 
 ## Test
 
-- Per ora funzionano: il contatore utenti attivi, la GET, e il contatore del bottone.
-
-Manca da capire i messaggi diretti, in particolare come mappare gli id...
+Si possono provare:
+- GET test , è un modo per agganciare le (check swagger per testare) chiamate http a signalR, serve dependency injection. Check il controller
+- Aumentare ed osservare variabili tra tutti gli utenti connessi (contatore utenti connessi e contatore bottone)
+- Messaggi diretti tramite i gruppi: provare aprendo più tab, joinando una stanza con lo stesso room id, e mandare un messaggio. Il messaggio verrà ricevuto da tutti gli utenti della stanza
 
 ## Notes
 
